@@ -1,0 +1,17 @@
+# MATLAB / Simulink generated artifacts
+slprj/
+Cache/
+derived/
+*.slxc
+*.autosave
+*.asv
+
+# Embedded Coder output (regenerated from the .slx models)
+Codegen/
+
+# AVR build artifacts
+*.o
+*.d
+*.elf
+*.hex
+*.map

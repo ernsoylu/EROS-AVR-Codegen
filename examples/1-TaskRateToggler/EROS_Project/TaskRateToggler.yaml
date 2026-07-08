@@ -1,0 +1,55 @@
+system:
+  name: TaskRateToggler
+  kernel_dir: /home/eren/dev/ATmega328P/kernel
+  drivers_dir: /home/eren/dev/ATmega328P/drivers
+  hooks:
+    startup: true
+    error: true
+    shutdown: true
+  idle: busy
+resources:
+  - name: Resource_1
+    users:
+      - appTaskRate_10ms
+      - appTaskRate_50ms
+      - appTaskRate_100ms
+models:
+  - name: appTaskRate_10ms
+    codegen_dir: 
+      /home/eren/dev/ATmega328P/simulink/examples/1-TaskRateToggler/Codegen/appTaskRate_ert_rtw
+    runnable: appKnbSwt_Runnable
+    rate_ms: 10
+    ports:
+      in: []
+      out:
+        - signal: OUT_Toggler_B
+          driver: dio
+          port: D
+          bit: 1
+    model: appTaskRate
+  - name: appTaskRate_50ms
+    codegen_dir: 
+      /home/eren/dev/ATmega328P/simulink/examples/1-TaskRateToggler/Codegen/appTaskRate_ert_rtw
+    runnable: appKnbSwt_Runnable
+    rate_ms: 50
+    ports:
+      in: []
+      out:
+        - signal: OUT_Toggler_B
+          driver: dio
+          port: D
+          bit: 2
+    model: appTaskRate
+  - name: appTaskRate_100ms
+    codegen_dir: 
+      /home/eren/dev/ATmega328P/simulink/examples/1-TaskRateToggler/Codegen/appTaskRate_ert_rtw
+    runnable: appKnbSwt_Runnable
+    rate_ms: 100
+    ports:
+      in: []
+      out:
+        - signal: OUT_Toggler_B
+          driver: dio
+          port: D
+          bit: 3
+    model: appTaskRate
